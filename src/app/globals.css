@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 15, 30;
+  --background-end-rgb: 5, 10, 20;
+  --yellow-freaky: 255, 221, 0;
+  --black-freaky: 0, 0, 0;
+  --dark-blue: 10, 15, 30;
+  --gray-light: 160, 160, 160;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    )
+    fixed;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+  
+  h1 {
+    @apply text-3xl;
+  }
+  
+  h2 {
+    @apply text-2xl;
+  }
+  
+  h3 {
+    @apply text-xl;
+  }
+  
+  a {
+    @apply text-yellow-freaky hover:text-yellow-300 transition-colors;
+  }
+  
+  button {
+    @apply focus:outline-none focus:ring-2 focus:ring-yellow-freaky focus:ring-opacity-50;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-black border border-yellow-freaky/30 rounded-lg p-4 shadow-md;
+  }
+  
+  .btn-primary {
+    @apply bg-yellow-freaky text-black font-medium py-2 px-4 rounded-md hover:bg-yellow-300 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border border-yellow-freaky text-yellow-freaky font-medium py-2 px-4 rounded-md hover:bg-yellow-freaky/10 transition-colors;
+  }
+  
+  .input-field {
+    @apply bg-black border border-gray-800 text-white rounded-md w-full p-2 focus:outline-none focus:ring-2 focus:ring-yellow-freaky focus:border-transparent;
+  }
+  
+  .select-field {
+    @apply bg-black border border-gray-800 text-white rounded-md w-full p-2 focus:outline-none focus:ring-2 focus:ring-yellow-freaky focus:border-transparent;
+  }
+  
+  .badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .badge-success {
+    @apply bg-green-900/30 text-green-400;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-900/30 text-yellow-400;
+  }
+  
+  .badge-danger {
+    @apply bg-red-900/30 text-red-400;
+  }
+  
+  .tab-active {
+    @apply border-b-2 border-yellow-freaky text-yellow-freaky;
+  }
+  
+  .tab-inactive {
+    @apply text-gray-light hover:text-white;
+  }
+}
+
+/* Animações */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(var(--dark-blue), 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--yellow-freaky), 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--yellow-freaky), 0.5);
+}
